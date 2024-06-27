@@ -23,26 +23,28 @@ header h1 {
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
     padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 1rem;
+    margin: 0 10px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 main {
     padding: 1rem;
-}
-
-section {
-    margin-bottom: 2rem;
 }
 
 footer {
@@ -50,7 +52,11 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+}
+
+#p5-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
