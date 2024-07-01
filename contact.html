@@ -3,27 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系主理人</title>
+    <title>onlyredrose联系主理人</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 爱心动画样式 */
+        .heart {
+            position: absolute;
+            top: 20px;
+            left: calc(50% - 3cm); /* 调整爱心位置，向左移动3厘米 */
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            transform: rotate(-45deg);
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        .heart::after,
+        .heart::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .heart::after {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::before {
+            top: 0;
+            left: -10px;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
         <h1>联系主理人</h1>
+        <div class="heart"></div> <!-- 添加的爱心图案 -->
         <nav>
             <ul>
                 <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">我的艺术观</a></li>
-                <li><a href="contact.html">联系主理人</a></li>
+                <li><a href="about.html">艺术观</a></li>
                 <li><a href="media.html">作品</a></li>
+                <li><a href="contact.html">联系主理人</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
         <section id="contact">
-            <h2>如果您想联系我，请给我发邮件，谢谢</h2>
+            <p>如果您有关于委托艺术创作、装置艺术、产品设计、空间设计的创作需求，想联系主理人</p>
+            <p>请给我发邮件，谢谢</p>
             <p>237793482@qq.com</p>
         </section>
         <section id="p5-canvas">

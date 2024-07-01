@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>onlyredrose主页</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>欢迎来到我的秘密花园</h1>
+        <h1 data-text="欢迎来到我的秘密花园">欢迎来到我的<span class="dynamic-text">秘密花园</span></h1>
+        <div class="heart"></div> <!-- 调整后的爱心位置 -->
         <nav>
             <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">我的艺术观</a></li>
-                <li><a href="contact.html">联系主理人</a></li>
+                <li><a href="index.html">主理人</a></li>
+                <li><a href="about.html">艺术观</a></li>
                 <li><a href="media.html">作品</a></li>
+                <li><a href="contact.html">联系主理人</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
         <section id="home">
-            <h2>首页</h2>
-            <p>常蓝予</p>
-            <p>目前就读于鲁迅美术学院，是实验艺术系研究生。</p>
-            <p>喜欢尝试采用不同的媒介和材料，表现自己的观念，呈现出对艺术多元化的表达。</p>
-            <p>作品涉及装置、空间设计、产品设计、架上绘画等不同领域。</p>
-            <p>通过抽象的隐喻来表达观念，引发观者进入思考，不同的观者将赋予这些作品不同的意义，耐人寻味。</p>
+            <h2>主理人</h2>
+            <img src="photo.jpg" alt="常蓝予的照片">
+            <div class="content">
+                <p>常蓝予</p>
+                <p>目前就读于鲁迅美术学院，是实验艺术系研究生。</p>
+                <p>喜欢尝试采用不同的媒介和材料，表现自己的观念，呈现出对艺术多元化的表达。</p>
+                <p>作品涉及装置、空间设计、产品设计、架上绘画等不同领域。</p>
+                <p>通过抽象的隐喻来表达观念，引发观者进入思考，不同的观者将赋予这些作品不同的意义，耐人寻味。</p>
+                <p>目前我的主要研究方向为艺术产品化，所以现在涉猎的范围有：委托艺术创作、装置艺术、产品设计、空间设计。</p>
+            </div>
         </section>
         <section id="p5-canvas">
             <!-- p5.js Canvas will be rendered here -->

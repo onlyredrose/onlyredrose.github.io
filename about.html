@@ -3,23 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的艺术观</title>
+    <title>onlyredrose艺术观</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 爱心动画样式 */
+        .heart {
+            position: absolute;
+            top: 20px;
+            left: calc(50% - 2cm); /* 调整爱心位置，向左移动2厘米 */
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            transform: rotate(-45deg);
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        .heart::after,
+        .heart::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .heart::after {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::before {
+            top: 0;
+            left: -10px;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>我的艺术观</h1>
+        <h1>艺术观</h1>
+        <div class="heart"></div> <!-- 添加的爱心图案 -->
         <nav>
             <ul>
                 <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">我的艺术观</a></li>
-                <li><a href="contact.html">联系主理人</a></li>
+                <li><a href="about.html">艺术观</a></li>
                 <li><a href="media.html">作品</a></li>
+                <li><a href="contact.html">联系主理人</a></li>
             </ul>
         </nav>
     </header>
-    
-    <main>
+     <main>
         <section id="about">
             <h2>我的艺术观</h2>
             <p>下面是我的艺术观自述论文大纲</p>
@@ -126,5 +173,15 @@
                 首先，我要特别感谢艺术美学课程的老师，感谢您提出的论文题目，它不仅让我深入思考了艺术产品化这一重要课题，更促使我重新审视自己的艺术观。在您的引导下，我更加明确了自己的创作方向，为今后的艺术生涯奠定了更好的基础。
                 我还要感谢我的同学和朋友们，在与大家的讨论中得到启发，在这个过程中，我们一起交流思想，共同成长，我深感幸运。
                 最后，我要感谢我的家人，感谢你们在我求学期间的理解和支持。我会在学术和创作的道路上坚定前行，并且实现自我价值，不断地成长为更优秀的人。</p>
+         </section>
+         <section id="p5-canvas">
+            <!-- p5.js Canvas will be rendered here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 我的秘密花园</p>
+    </footer>
+</body>
+</html>
                 
    
