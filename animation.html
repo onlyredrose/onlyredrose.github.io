@@ -9,7 +9,7 @@
         /* 爱心动画样式 */
         .heart {
             position: absolute;
-            top: 20px;
+            top: 20px; /* 调整爱心位置，向上移动 */
             left: calc(50% - 2cm); /* 调整爱心位置，向左移动2厘米 */
             width: 20px;
             height: 20px;
@@ -48,18 +48,6 @@
             100% {
                 transform: scale(1);
             }
-        }
-
-        /* 修改作品分类链接颜色 */
-        #media ul li a {
-            color: #ffb6c1; /* 马卡龙粉色 */
-            text-decoration: none;
-            font-size: 18px; /* 调整字体大小 */
-            font-weight: bold; /* 字体加粗 */
-        }
-
-        #media ul li a:hover {
-            text-decoration: underline;
         }
 
         body {
@@ -108,62 +96,13 @@
             color: #333;
         }
 
-        main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        section h2 {
-            font-size: 2rem;
-            color: #333;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        section ul li {
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-
-        section ul li a {
-            color: #ffb6c1; /* 马卡龙粉色 */
-            text-decoration: none;
-            font-size: 18px; /* 调整字体大小 */
-            font-weight: bold; /* 字体加粗 */
-            display: block;
-            padding: 10px 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        section ul li a:hover {
-            background-color: #eee;
+        #p5-canvas {
+            width: 640px;
+            height: 360px;
+            margin-top: 20px; /* 调整canvas顶部间距 */
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
@@ -182,21 +121,61 @@
             </ul>
         </nav>
     </header>
-    
-    <main>
-        <section id="media">
-            <h2>作品</h2>
-            <p>作品分类：</p>
-            <ul>
-                <li><a href="images.html">图片</a></li>
-                <li><a href="videos.html">视频</a></li>
-                <li><a href="music.html">音乐</a></li>
-                <li><a href="animation.html">编程动画</a></li> <!-- 新增的编程动画链接 -->
-            </ul>
-        </section>
-        <section id="p5-canvas">
-            <!-- p5.js Canvas will be rendered here -->
-        </section>
-    </main>
+    <script>
+        let h1, h2, h3;
+
+        function setup() {
+            createCanvas(640, 360);
+            noStroke();
+            h1 = new Heart(250, 16, 120);
+            h2 = new Heart(164, 185, 80);
+            h3 = new Heart(420, 230, 220);
+        }
+
+        function draw() {
+            background(102);
+
+            h1.update(mouseX, mouseY);
+            h2.update(mouseX, mouseY);
+            h3.update(mouseX, mouseY);
+
+            h1.display();
+            h2.display();
+            h3.display();
+        }
+
+        class Heart {
+            constructor(x, y, size) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.angle = 0.0;
+            }
+
+            update(mx, my) {
+                this.angle = atan2(my - this.y, mx - this.x);
+            }
+
+            display() {
+                push();
+                translate(this.x, this.y);
+                rotate(this.angle);
+                fill(255, 0, 0);
+                this.drawHeart(0, 0, this.size);
+                pop();
+            }
+
+            drawHeart(x, y, s) {
+                beginShape();
+                vertex(x, y + s / 4);
+                bezierVertex(x, y, x - s / 2, y, x - s / 2, y + s / 4);
+                bezierVertex(x - s / 2, y + s / 2, x, y + s, x, y + s * 3 / 4);
+                bezierVertex(x, y + s, x + s / 2, y + s / 2, x + s / 2, y + s / 4);
+                bezierVertex(x + s / 2, y, x, y, x, y + s / 4);
+                endShape(CLOSE);
+            }
+        }
+    </script>
 </body>
 </html>
+
